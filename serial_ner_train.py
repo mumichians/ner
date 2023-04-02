@@ -1,18 +1,24 @@
-
 import spacy
 from spacy.tokens import DocBin
 from tqdm import tqdm
 from spacy.util import filter_spans
 
 nlp = spacy.blank("en") # load a new spacy model
-db = DocBin() # create a DocBin object
 
 # create training data
 import json
+
 def gen_spacy_obj(fname):
     f = open(f'{fname}.json')
     TRAIN_DATA = json.load(f)
-    for text, annot in tqdm(TRAIN_DATA['annotations']): 
+
+    doc_bins = [] # create a list to hold the DocBin objects
+    docs_per_bin = 100 # set the number of documents per DocBin object
+
+    for i, (text, annot) in enumerate(tqdm(TRAIN_DATA['annotations'])):
+        if i % docs_per_bin == 0:
+            db = DocBin() # create a new DocBin object
+            doc_bins.append(db)
         doc = nlp.make_doc(text) 
         ents = []
         for start, end, label in annot["entities"]:
@@ -23,16 +29,14 @@ def gen_spacy_obj(fname):
                 ents.append(span)
         filtered = filter_spans(ents)
         doc.ents = filtered 
-        db.add(doc)
-    if fname == "train_dataset":
-        db.to_disk(f'./traindata/{fname}.spacy') # save the docbin object
-    else:
-        db.to_disk(f'./valdata/{fname}.spacy')
+        doc_bins[-1].add(doc) # add the document to the last DocBin object in the list
 
+    for i, db in enumerate(doc_bins):
+        db.to_disk(f'./{fname}_{i}.spacy') # save each DocBin object separately
 
 
 # train
-#! python3.10 -m spacy train config.cfg --output ./ --paths.train ./train_dataset.spacy --paths.dev ./val_dataset.spacy --gpu-id 0
+#! python3.10 -m spacy train config.cfg --output ./ --paths.train ./traindata --paths.dev ./valdata --gpu-id 0
 
 
 # demo

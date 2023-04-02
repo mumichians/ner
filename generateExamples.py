@@ -1,7 +1,7 @@
 import random
 import json
 
-genres = ['rock', 'rap', 'metal', 'jazz', 'pop', 'country', 'r&b', 'rhythm and blues']
+genres = ['rock', 'rap', 'metal', 'jazz', 'pop', 'country']
 artists = [
     'The Beatles',
     'Led Zeppelin',
@@ -24,99 +24,25 @@ artists = [
     'Fleetwood Mac',
     'Van Halen',
     'Rush',
-    'The Clash',
-    'Radiohead',
-    'Pearl Jam',
-    'Foo Fighters',
-    'Green Day',
-    'The Killers',
-    'Arctic Monkeys',
-    'Red Hot Chili Peppers',
-    'Oasis',
-    'Coldplay',
-    'Blur',
-    'The Strokes',
-    'The White Stripes',
-    'Linkin Park',
-    'Nine Inch Nails',
-    'System of a Down',
-    'Kings of Leon',
-    'The Black Keys',
-    'Muse',
-    'Queens of the Stone Age',
-    'Tool',
-    'Alice in Chains',
-    'Soundgarden',
-    'Stone Temple Pilots',
-    'The Smashing Pumpkins',
-    'The Pixies',
-    'R.E.M.',
-    'Weezer',
-    'Bon Jovi',
     'Notorious B.I.G.',    'Tupac',    'Nas',    'Jay-Z',    'Eminem',    'Kendrick Lamar',    'Drake',    'Kanye West',    'Outkast',    'Wu-Tang Clan',    'Public Enemy',    'Run-DMC',    'Beastie Boys',    'LL Cool J',    'Ice Cube',    'Snoop Dogg',    '50 Cent',    'Lil Wayne',    'Missy Elliott',    'Busta Rhymes',    'A Tribe Called Quest',    'Mos Def',    'Common',    'Chance the Rapper',    'Cardi B',    'J. Cole',    'Travis Scott',    'Migos',    'Post Malone',    'Tyler, The Creator',    'Childish Gambino',    'Lauryn Hill',    'The Roots',    'Gang Starr',    'Rakim',    'KRS-One',    'Big Daddy Kane',    'Grandmaster Flash and the Furious Five',    'De La Soul',    'Fugees',    'N.W.A.',    'Scarface',    'DMX',    'Ludacris',    'Big L',    'Ghostface Killah',    'Raekwon',    'GZA',    'MF DOOM',    'Black Star',    'Run the Jewels',    'Danny Brown',
     'Louis Armstrong',    'Duke Ellington',    'Miles Davis',    'Charlie Parker',    'John Coltrane',    'Ella Fitzgerald',    'Billie Holiday',    'Thelonious Monk',    'Dave Brubeck',    'Art Blakey',    'Chet Baker',    'Herbie Hancock',    'Sonny Rollins',    'Ornette Coleman',    'Dizzy Gillespie',    'Stan Getz',    'Cannonball Adderley',    'Charles Mingus',    'Oscar Peterson',    'Wes Montgomery',    'Django Reinhardt',    'Pat Metheny',    'Sarah Vaughan',    'Coleman Hawkins',    'Lester Young',    'Keith Jarrett',    'Wynton Marsalis',    'Count Basie',    'Benny Goodman',    'Lionel Hampton',    'Chick Corea',    'Joe Pass',    'George Benson',    'Gil Evans',    'Bud Powell',    'Clifford Brown',    'Max Roach',    'Jimmy Smith',    'Jimmy Heath',    'Johnny Hartman',    'Tony Williams',    'Pharoah Sanders',    'Bill Evans',    'Eddie Palmieri',    'Lee Morgan',    'Horace Silver',    'Cecil Taylor',    'Roy Ayers',    'Gary Burton',    'Joe Henderson',
-    'Metallica',    'Iron Maiden',    'Black Sabbath',    'Judas Priest',    'Slayer',    'Pantera',    'Megadeth',    'AC/DC',    'Motorhead',    'Guns N\' Roses',    'Ozzy Osbourne',    'System of a Down',    'Disturbed',    'Korn',    'Lamb of God',    'Tool',    'Dream Theater',    'Opeth',    'Mastodon',    'Gojira',    'Deftones',    'Meshuggah',    'Cannibal Corpse',    'Behemoth',    'Cradle of Filth',    'Children of Bodom',    'Arch Enemy',    'In Flames',    'Killswitch Engage',    'Trivium',    'Avenged Sevenfold',    'Slipknot',    'Metal Church',    'Testament',    'Anthrax',    'Overkill',    'Exodus',    'Sepultura',    'Machine Head',    'Death',    'Morbid Angel',    'Carcass',    'At The Gates',    'Dark Tranquility',    'Dio',    'Rainbow',    'Saxon',    'Venom',    'Mercyful Fate',    'King Diamond'
-]
+    ]
 song_titles = [
     "Stairway to Heaven",
     "Bohemian Rhapsody",
-    "Imagine",
-    "Billie Jean",
-    "Hey Jude",
-    "Let it Be",
-    "Thriller",
-    "Like a Rolling Stone",
-    "I Will Always Love You",
-    "Sweet Child O' Mine",
-    "Hotel California",
-    "Born to Run",
-    "Smells Like Teen Spirit",
-    "God Save the Queen",
-    "What's Going On",
-    "Purple Rain",
-    "The Times They Are A-Changin'",
-    "Yesterday",
-    "Good Vibrations",
-    "My Girl",
-    "Every Breath You Take",
-    "Rolling in the Deep",
-    "Hallelujah",
-    "All Along the Watchtower",
-    "Purple Haze",
-    "London Calling",
-    "Layla",
-    "A Day in the Life",
-    "Livin' on a Prayer",
-    "Nothing Compares 2 U",
-    "I Heard It Through the Grapevine",
-    "Billie Holiday",
-    "In My Life",
-    "Imagine",
-    "The Twist",
-    "Tutti Frutti",
-    "Johnny B. Goode",
-    "Jailhouse Rock",
-    "I Want to Hold Your Hand",
-    "A Hard Day's Night",
-    "Help!",
-    "Yesterday",
-    "Can't Buy Me Love",
-    "I Feel Fine",
-    "All You Need Is Love",
-    "Hey Jude",
-    "Get Back",
-    "Let It Be",
-    "Come Together",
-    "Something",
-    "Here Comes the Sun",
-    "I Want You (She's So Heavy)",
-    "Abbey Road",
-    "Meet the Beatles!",
-    "Please Please Me",
-    "With the Beatles",
-    "Rubber Soul",
-    "Revolver"
-
+    "going to the grocery store",
+    "riding a bicycle through times square",
+    "going to coachella with your friends",
+    "working at red robin slinging burgers",
+    "teaching at the university of michigan",
+    "swimming in the ocean in hawaii",
+    "going on vacation",
+    "being a college student", 
+    "teeth like god's shoeshine",
+    "the predatory wasp of the palisades is out to get us",
+    "take me in your arms",
+    "like minded people",
+    "windows futures like minds country roads"
 ]
 
 def generate_examples():
@@ -190,17 +116,22 @@ def generate_examples():
                         entities_list.append((title_start, title_end, 'TITLE'))
                     except:
                         pass
-                    
-                    if cnt < 17271: # TODO
+
+
+                    if cnt < 400000: # TODO
                         training.append((example, {'entities': entities_list}))
                         cnt = cnt + 1
                     else:
                         validation.append((example, {'entities': entities_list}))     
                         cnt = cnt + 1  
 
+    print("NUM EXAMPLES\n")
+    print(cnt)
+
     return training, validation
 
-artists = [x.lower() for x in artists]
+# artists = [x.lower() for x in artists]
+song_titles = [x.lower() for x in song_titles]
 
 training, validation = generate_examples()
 
