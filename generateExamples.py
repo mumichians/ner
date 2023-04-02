@@ -43,7 +43,68 @@ song_titles = [
     "take me in your arms",
     "like minded people",
     "windows futures like minds country roads"
+    
 ]
+
+# [
+# "Stronger",
+#     "Baby Love",
+#     "Acid Tracks",
+#     "Pride is the Devil",
+#     "Passionfruit",
+#     "Africa",
+#     "After the Gold Rush",
+#     "Single Ladies",
+#     "Umbrella",
+#     "Shake it Off",
+#     "Toxic",
+#     "Rolling in the Deep",
+#     "Firework",
+#     "Dynamite",
+#     "Rehab",
+#     "Blinding Lights",
+#     "Dancing on my own",
+#     "Hey Ya!",
+#     "Old Town Road",
+#     "Hips Don't Lie",
+#     "SexyBack",
+#     "Call Me Maybe",
+#     "Uptown Funk",
+#     "Poker Face",
+#     "Hollaback Girl",
+#     "Starships",
+#     "Royals",
+#     "Party in the U.S.A.",
+#     "Bad Guy",
+#     "Good as Hell",
+#     "Get Lucky",
+#     "Adore You",
+#     "No Tears Left to Cry",
+#     "Drivers License",
+#     "Sorry",
+#     "Titanium",
+#     "Happy",
+#     "Hotline Bling",
+#     "Levitating",
+#     "Milkshake",
+#     "Hung Up",
+#     "Despacito",
+#     "Bootylicious",
+#     "Work It",
+#     "Can’t Get You Out of My Head",
+#     "American Boy",
+#     "Since U Been Gone",
+#     "Let Me Blow Ya Mind",
+#     "Gangnam Style",
+#     "Crazy",
+#     "Clint Eastwood",
+#     "Paper Planes",
+#     "I Want You",
+#     "What's Goin' On",
+#     "Bridge Over Troubled Water",
+#     "Family Affair",
+#     "Dancing Queen",
+#     "No Woman No Cry" ]
 
 def generate_examples():
     training = []
@@ -52,26 +113,7 @@ def generate_examples():
     for artist in artists:
         for genre in genres:
             for title in song_titles:
-                examples = [f'Please generate a {genre} song in the style of {artist}', 
-                            f'Please write a {genre} song in the style of {artist}', 
-                            f'write a {genre} song in the style of {artist}',
-                            f'make a {genre} song by {artist}',
-                            f'create {genre} song lyrics in the style of {artist}',
-                            f'generate {genre} lyrics from the perspective of {artist}',
-                            f'generate {artist} lyrics in a {genre} genre',
-                            f'write {artist} lyrics in a {genre} genre',
-                            f'write lyrics by {artist} please',
-                            f'write lyrics by {artist} pretty please',
-                            f'write lyrics by {artist} in the style of {genre} for me please',
-                            f'write a {genre} song',
-                            f'write a {genre} song by {artist} um yes',
-                            f'would you make a {genre} song by {artist} please',
-                            f'generate lyrics to a song by {artist} please in a {genre} genre',
-                            f'write {genre} lyrics in the style of {artist} for me',
-                            f'write a {genre} song by {artist} um yes',
-                            f'would you make a {genre} song by {artist} please',
-                            f'generate lyrics to a song by {artist} please in a {genre} genre',
-                            f'write {genre} lyrics in the style of {artist} for me',
+                examples = [
                             f'I want {genre} lyrics by {artist} for my song titled {title}',
                             f'I want {genre} lyrics by {artist} about {title} NOW!',
                             f'Please generate a {genre} song about {title} in the style of {artist}', 
@@ -112,13 +154,13 @@ def generate_examples():
                         pass
                     try:
                         title_start = example.index(title)
-                        title_end = genre_start + len(title)
+                        title_end = title_start + len(title)
                         entities_list.append((title_start, title_end, 'TITLE'))
                     except:
                         pass
 
 
-                    if cnt < 400000: # TODO
+                    if cnt < 225000: # TODO
                         training.append((example, {'entities': entities_list}))
                         cnt = cnt + 1
                     else:

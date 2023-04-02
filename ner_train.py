@@ -25,9 +25,9 @@ def gen_spacy_obj(fname):
         doc.ents = filtered 
         db.add(doc)
     if fname == "train_dataset":
-        db.to_disk(f'./traindata/{fname}.spacy') # save the docbin object
+        db.to_disk(f'./{fname}.spacy') # save the docbin object
     else:
-        db.to_disk(f'./valdata/{fname}.spacy')
+        db.to_disk(f'./{fname}.spacy')
 
 
 
