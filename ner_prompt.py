@@ -8,13 +8,14 @@ import sys
 prompt = sys.argv[1]
 print(prompt)
 #nlp = spacy.load("en_core_web_sm")
-nlp_ner = spacy.load("./model-last")
+nlp_ner = spacy.load("./model-best")
 doc = nlp_ner(prompt) # input sample text
 # nlp_ner = nlp.create_pipe("./model-last")
 # nlp.add_pipe(nlp_ner)
-doc = nlp_ner(prompt)
-displacy.render(doc, style="ent")
-docJSON = doc.to_json()
+# doc = nlp_ner(prompt)
+# displacy.render(doc, style="ent")
+
+# docJSON = doc.to_json()
 # print(docJSON)
 artist = ""
 title = ""
